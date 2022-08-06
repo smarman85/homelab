@@ -70,7 +70,7 @@ module "asg-1" {
     SecurityGroup = [aws_security_group.web.id]
     AccessKey = aws_key_pair.west.key_name 
     // UserData = base64encode(file("../scripts/docker.sh")) // ubuntu
-    UserData = base64encode(file("../scripts/docker-yum.sh"))
+    UserData = base64encode(file("../scripts/docker-amazon.sh"))
     AssignPublicIP = true
 
     // Asg
