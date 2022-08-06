@@ -65,11 +65,12 @@ module "asg-1" {
 
     // Launch Config
     ImageID = "ami-0d9858aa3c6322f73" // yum based image
-    // ImageID = "ami-085284d24fe829cd0" // ubuntu doesn't work
+    // ImageID = "ami-085284d24fe829cd0" // needs work
     ImageType = "t2.micro"
     SecurityGroup = [aws_security_group.web.id]
     AccessKey = aws_key_pair.west.key_name 
-    UserData = base64encode(file("../scripts/docker.sh"))
+    // UserData = base64encode(file("../scripts/docker.sh")) // ubuntu
+    UserData = base64encode(file("../scripts/docker-yum.sh"))
     AssignPublicIP = true
 
     // Asg
